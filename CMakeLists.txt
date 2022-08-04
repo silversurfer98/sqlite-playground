@@ -10,9 +10,12 @@ set(CMAKE_CXX_COMPILER_FORCED "C://a//bin//g++.exe")
 #set(CMAKE_CXX_COMPILER "D://C_Compilers//mingw64//bin//g++.exe")
 # -------------------------------------------------------------------
 
-# include_directories("${PROJECT_SOURCE_DIR}/dlls")
-# add_subdirectory(dlls)
-
 project(dbtest VERSION 0.1)
-add_executable(output sqlite.h test.cpp)
-# target_link_libraries(output SQLITE)
+
+set(CMAKE_CXX_STANDARD 11)
+
+include_directories("${PROJECT_SOURCE_DIR}//sqlite3")
+add_subdirectory(sqlite3)
+
+add_executable(output test.cpp)
+target_link_libraries(output sqlite)
