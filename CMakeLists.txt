@@ -19,3 +19,5 @@ add_subdirectory(sqlite3)
 
 add_executable(output test.cpp)
 target_link_libraries(output sqlite)
+
+add_executable(test mytest.cpp)
