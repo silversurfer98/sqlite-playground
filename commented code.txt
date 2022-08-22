@@ -21,3 +21,14 @@ gcc (MinGW.org GCC-6.3.0-1) 6.3.0
 Copyright (C) 2016 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+    //char* filename = new char[200];
+    //char* res = append_m(folder,file);
+    std::string res = folder + file;
+    //charprint(res);
+    std::cout<<res.c_str();
+    const char* filename = "../databases/mydb.db";
+    //std::cin>>filename;
+    //char *topass = append(folder,filename);
+    // const char* filename = "testdb1.db";

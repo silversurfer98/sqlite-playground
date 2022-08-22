@@ -61,21 +61,26 @@ void run_command(sqlite3 *db, char* entry)
 
 int main()
 {
-    std::string r;
-    std::cin>>r;
-    std::cout<<r;
     std::cout<<"\n *************** c++ interface for sqlite3 ********** \n ";
     std::cout<<"enter the filename : ";
-    char* filename = new char[200];
-    //char* folder = "../Databses/";
-    std::cin>>filename;
-    //char *topass = append(folder,filename);
-    // const char* filename = "testdb1.db";
-    sqlite3* db = opendb(filename);
+    
+    std::string folder = "../Databases/";
+    std::string file;
+    std::cin>>file;
+    
+    std::string res = folder + file + ".db";
+    //const char* filename = res.c_str();
+    //const char* work = "../Databases/mydb.db";
 
+    sqlite3* db = opendb(res.c_str());
+
+if(db!=nullptr)
+{    
+    std::cout<<"\n  The opened database is --> "<<res<<"\n";
+    std::cout<<"establish commands here --> loop starts / issue quit to quit \n";
     while(true)
     {
-        char* command = new char[200];
+        char* command = new char[300];
         std::cout<<"\nsqlite> ";
         //std::cin>>command;
         scanf(" %[^\n]s",command);
@@ -83,20 +88,24 @@ int main()
         // break for quit
         if(quit_compare(command))
         {
-            std::cout<<"\nbye\n";
+            std::cout<<"\n ********** bye ! *********\n\n";
+            delete[] command;
             break;
         }
 
         // check command to dbms
-        std::cout<<"ur command to db is : ";
+        std::cout<<" ---- ur command to dbms is : ";
         charprint(command);
-
+        std::cout<<" ---- ";
         // run the command
         run_command(db, command);
 
         delete[] command;
     }
-
     sqlite3_close(db);
     return 0;
+}
+    else
+        return 0;
+
 }

@@ -68,7 +68,7 @@ bool quit_compare(char* data)
     }
 }
 
-char* append(char *data1, char* data2)
+char* append_m(char *data1, char* data2)
 {
     size_t len1 = length(data1);
     size_t len2 = length(data2);

@@ -1,8 +1,8 @@
 #include<iostream>
 #include<string.h>
-#include <stdlib.h>
+#include<stdlib.h>
 
-char* resizetoUsefulLength(char *data, int size);
+char* resizetoUsefulLength(char *data);
 
 char* floatTochar(float x);
 
@@ -14,4 +14,4 @@ bool quit_compare(char* data);
 
 unsigned int length(char *data);
 
-char* append(char *data1, char* data2);
+char* append_m(char *data1, char* data2);
